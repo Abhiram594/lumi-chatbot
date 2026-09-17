@@ -1,0 +1,46 @@
+﻿              // === LAYER 5: CHEST STAR & HOMEPAGE REVEAL ===
+              // t4a = 2.2 is when cape is fully revealed. Hold until 2.5.
+              
+              if (chestGlowRef.current && mainWrapperRef.current) {
+                  // Phase 1: Brighten (t4a: 2.5 to 2.8)
+                  let glowOpacity = Math.min(Math.max((t4a - 2.5) / 0.3, 0), 1.0);
+                  let glowScale = 1.0;
+                  
+                  // Phase 2: Pulses (t4a: 2.8 to 3.3)
+                  if (t4a > 2.8) {
+                      const pulseTime = t4a - 2.8;
+                      if (pulseTime < 0.5) {
+                          // 3 pulses in 0.5s -> each pulse is 0.166s
+                          const p = pulseTime / (0.5 / 3); // 0 to 3
+                          const pulseIdx = Math.floor(p);
+                          const localP = p - pulseIdx; // 0 to 1
+                          
+                          // A simple triangle pulse: 0 -> 1 -> 0
+                          const wave = 1.0 - Math.abs(localP * 2 - 1.0);
+                          
+                          if (pulseIdx === 0) glowScale = 1.0 + wave * 1.5;      // subtle
+                          else if (pulseIdx === 1) glowScale = 1.0 + wave * 3.0; // stronger
+                          else glowScale = 1.0 + wave * 6.0;                     // strongest
+                      } else {
+                          // Phase 3: Expansion (t4a: 3.3 to 4.0)
+                          const expandP = Math.min((t4a - 3.3) / 0.7, 1.0);
+                          // Easing for smooth cinematic expansion
+                          const easeExp = expandP < 0.5 ? 2 * expandP * expandP : 1 - Math.pow(-2 * expandP + 2, 2) / 2;
+                          // Scale up massively to cover screen (e.g., scale(400))
+                          glowScale = 1.0 + easeExp * 400.0;
+                      }
+                  }
+                  
+                  chestGlowRef.current.style.opacity = glowOpacity;
+                  chestGlowRef.current.style.transform = \scale(\)\;
+                  
+                  // Phase 4: Fade Intro out to reveal Homepage (t4a: 4.0 to 4.5)
+                  if (t4a > 4.0) {
+                      const fadeOut = Math.max(1.0 - (t4a - 4.0) / 0.5, 0);
+                      mainWrapperRef.current.style.opacity = fadeOut;
+                      
+                      if (fadeOut === 0) {
+                          mainWrapperRef.current.style.display = 'none';
+                      }
+                  }
+              }
