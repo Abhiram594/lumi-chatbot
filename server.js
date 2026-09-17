@@ -113,6 +113,10 @@ app.post('/api/chat', async (req, res) => {
 
       session.history.push({ role: 'model', parts: [{ text: finalResponse }] });
 
+      // Artificial ~1 second delay for Phase 1 to make Lumi feel more natural and thoughtful
+      // (The frontend already shows a typing indicator while waiting for the API)
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
       return res.json({
         sessionId,
         response: finalResponse,

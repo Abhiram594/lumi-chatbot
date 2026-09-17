@@ -54,8 +54,9 @@ const Hero = () => {
         <motion.img 
           src="/lumi-cape.png" 
           alt="Lumi Cape"
+          loading="eager"
           className="absolute w-[105%] h-auto origin-[50%_15%] z-0"
-          style={{ top: '38%', left: '-2%' }}
+          style={{ top: '38%', left: '-2%', willChange: 'transform' }}
           animate={{ 
             rotateZ: [-1, 4, -2, 3, -1], 
             rotateY: [0, 12, -4, 8, 0],
@@ -76,6 +77,8 @@ const Hero = () => {
         <img 
           src="/lumi-body.png" 
           alt="Lumi Body" 
+          fetchpriority="high"
+          loading="eager"
           className="relative w-full h-auto z-10 drop-shadow-2xl"
         />
 
@@ -86,4 +89,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default React.memo(Hero);

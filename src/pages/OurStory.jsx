@@ -77,20 +77,21 @@ const OurStory = () => {
   const ch3Text3Y = useTransform(smoothProgress, [0.5029, 0.5257, 0.5429, 0.5714], [15, 0, 0, -15]);
   const lineOpacity = useTransform(smoothProgress, [0.5257, 0.5486, 0.5429, 0.5714], [0, 0.4, 0.4, 0]);
 
-  // --- 12. CH4 POWERS CONSTELLATION (0.80 - 1.0) ---
-  const ch4Opacity = useTransform(smoothProgress, [0.5714, 0.6, 0.62, 0.65], [0, 1, 1, 0]);
-  const ch4Display = useTransform(smoothProgress, [0.57, 0.5714, 0.65, 0.66], ["none", "flex", "flex", "none"]);
-  const ch4LumiScale = useTransform(smoothProgress, [0.5714, 0.6, 0.62, 0.65], [0.8, 1, 1, 0.8]);
+  // --- 12. CH4 POWERS CONSTELLATION (0.57 - 0.78) ---
+  const ch4Opacity = useTransform(smoothProgress, [0.5714, 0.60, 0.75, 0.78], [0, 1, 1, 0]);
+  const ch4Display = useTransform(smoothProgress, [0.57, 0.5714, 0.78, 0.79], ["none", "flex", "flex", "none"]);
+  const ch4LumiScale = useTransform(smoothProgress, [0.5714, 0.60, 0.75, 0.78], [0.8, 1, 1, 0.8]);
   
-  const ch4Node1Opacity = useTransform(smoothProgress, [0.5857, 0.6], [0, 1]);
-  const ch4Node2Opacity = useTransform(smoothProgress, [0.5929, 0.6071], [0, 1]);
-  const ch4Node3Opacity = useTransform(smoothProgress, [0.6, 0.6143], [0, 1]);
-  const ch4Node4Opacity = useTransform(smoothProgress, [0.6071, 0.6214], [0, 1]);
-  const ch4Node5Opacity = useTransform(smoothProgress, [0.6143, 0.6286], [0, 1]);
+  // Stretch out node reveal times so they appear smoothly over a much longer scroll
+  const ch4Node1Opacity = useTransform(smoothProgress, [0.60, 0.63], [0, 1]);
+  const ch4Node2Opacity = useTransform(smoothProgress, [0.63, 0.66], [0, 1]);
+  const ch4Node3Opacity = useTransform(smoothProgress, [0.66, 0.69], [0, 1]);
+  const ch4Node4Opacity = useTransform(smoothProgress, [0.69, 0.72], [0, 1]);
+  const ch4Node5Opacity = useTransform(smoothProgress, [0.72, 0.75], [0, 1]);
 
-  // --- 13. CH5 THE MISSION (0.65 - 1.0) ---
-  const ch5Opacity = useTransform(smoothProgress, [0.65, 0.68, 0.98, 1.0], [0, 1, 1, 0]);
-  const ch5Display = useTransform(smoothProgress, [0.64, 0.65, 1.0], ["none", "flex", "flex"]);
+  // --- 13. CH5 THE MISSION (0.78 - 1.0) ---
+  const ch5Opacity = useTransform(smoothProgress, [0.78, 0.81, 0.98, 1.0], [0, 1, 1, 0]);
+  const ch5Display = useTransform(smoothProgress, [0.77, 0.78, 1.0], ["none", "flex", "flex"]);
   const ch5PathConvergence = useTransform(smoothProgress, [0.90, 0.94], [0, 1]);
   const ch5LumiScale = useTransform(ch5PathConvergence, [0, 1], [1, 1.3]);
   const rightTextOpacity = useTransform(smoothProgress, [0.92, 0.94], [0, 1]);
@@ -131,8 +132,8 @@ const OurStory = () => {
       else if (latest >= 0.0571 && latest < 0.2286) nextChapter = 1;
       else if (latest >= 0.2286 && latest < 0.3714) nextChapter = 2;
       else if (latest >= 0.3714 && latest < 0.5714) nextChapter = 3;
-      else if (latest >= 0.5714 && latest < 0.65) nextChapter = 4;
-      else if (latest >= 0.65) nextChapter = 5;
+      else if (latest >= 0.5714 && latest < 0.78) nextChapter = 4;
+      else if (latest >= 0.78) nextChapter = 5;
 
       if (nextChapter !== currentChapter) {
         currentChapter = nextChapter;
@@ -140,12 +141,12 @@ const OurStory = () => {
       }
 
       let nextNode = 0;
-      if (latest >= 0.65 && latest < 0.70) nextNode = 0;
-      else if (latest >= 0.70 && latest < 0.75) nextNode = 1;
-      else if (latest >= 0.75 && latest < 0.80) nextNode = 2;
-      else if (latest >= 0.80 && latest < 0.85) nextNode = 3;
-      else if (latest >= 0.85 && latest < 0.90) nextNode = 4;
-      else if (latest >= 0.90) nextNode = 5;
+      if (latest >= 0.78 && latest < 0.81) nextNode = 0;
+      else if (latest >= 0.81 && latest < 0.84) nextNode = 1;
+      else if (latest >= 0.84 && latest < 0.87) nextNode = 2;
+      else if (latest >= 0.87 && latest < 0.90) nextNode = 3;
+      else if (latest >= 0.90 && latest < 0.93) nextNode = 4;
+      else if (latest >= 0.93) nextNode = 5;
 
       if (nextNode !== currentMissionNode) {
         currentMissionNode = nextNode;
@@ -210,7 +211,7 @@ const OurStory = () => {
       <Navbar />
       
       {/* Main Scroll Container (1000vh for Ch 1, 2, 3, 4 pacing) */}
-      <div ref={containerRef} className="relative bg-lumi-midnight min-h-[1400vh] text-lumi-cream overflow-hidden">
+      <div ref={containerRef} className="relative bg-lumi-midnight min-h-[1800vh] text-lumi-cream overflow-hidden">
         
         {/* Progress Indicator Sidebar */}
         <div className="fixed left-8 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col gap-6">
@@ -580,13 +581,15 @@ const OurStory = () => {
                 style={{
                   left: window.innerWidth >= 768 ? nodeXs[activeMissionNode] : mNodeXs[activeMissionNode],
                   top: window.innerWidth >= 768 ? desktopNodeYs[activeMissionNode] + "%" : mobileNodeYs[activeMissionNode] + "%",
-                  scale: ch5LumiScale
+                  scale: ch5LumiScale,
+                  willChange: 'transform'
                 }}
               >
                 <motion.div
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                   className="relative transition-all duration-700 drop-shadow-[0_0_20px_rgba(255,193,7,0.4)]"
+                  style={{ willChange: 'transform' }}
                 >
                   <img src="/lumi-spark.png" alt="Lumi" className="h-[12vh] md:h-[18vh] w-auto object-contain relative z-10" />
                   <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 rounded-full transition-all duration-700 z-20 mix-blend-screen w-12 h-12 bg-[radial-gradient(circle,rgba(255,193,7,0.6)_0%,transparent_70%)] opacity-100 animate-pulse" />

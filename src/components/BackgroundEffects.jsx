@@ -42,15 +42,16 @@ const BackgroundEffects = () => {
       {/* 4. Warm Lamp Glow (Subtle atmospheric pulse on the far right) */}
       <div 
         className="absolute w-[15vw] h-[15vw] rounded-full bg-lumi-yellow mix-blend-screen blur-[60px] opacity-40 animate-pulse-glow motion-reduce:animate-none right-[2%] bottom-[15%]"
+        style={{ willChange: 'opacity, filter' }}
       ></div>
       
       {/* 6. Lumi Chest Star Glow (Kept soft and warm) */}
       <div 
         className="absolute w-[20vw] h-[20vw] rounded-full bg-[#FF9800] mix-blend-screen blur-[80px] opacity-60 animate-pulse-glow motion-reduce:animate-none right-[25%] bottom-[20%]"
-        style={{ animationDelay: '2s' }}
+        style={{ animationDelay: '2s', willChange: 'opacity, filter' }}
       ></div>
     </div>
   );
 };
 
-export default BackgroundEffects;
+export default React.memo(BackgroundEffects);

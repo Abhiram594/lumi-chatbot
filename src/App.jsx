@@ -1,10 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import Home from './pages/Home';
-import OurStory from './pages/OurStory';
-import TalkToLumi from './pages/TalkToLumi';
 import CursorGlow from './components/CursorGlow';
 import TheSignalIntro from './components/TheSignalIntro';
+
+// Lazy load heavy page components for better performance
+const Home = lazy(() => import('./pages/Home'));
+const OurStory = lazy(() => import('./pages/OurStory'));
+const TalkToLumi = lazy(() => import('./pages/TalkToLumi'));
+
+// Simple loading fallback
+const PageLoader = () => (
+  <div className="min-h-screen flex items-center justify-center bg-lumi-navy">
+    <div className="w-8 h-8 border-2 border-lumi-yellow border-t-transparent rounded-full animate-spin"></div>
+  </div>
+);
 
 function App() {
   const [currentPath, setCurrentPath] = useState('');
@@ -24,10 +33,11 @@ function App() {
   const isTalk = currentPath === '#/talk';
 
   return (
-    <div className="min-h-screen bg-lumi-navy text-lumi-cream font-sans">
+    <div className="min-h-screen bg-lumi-navy text-lumi-cream font-sans overflow-x-hidden">
       <CursorGlow />
       <TheSignalIntro />
-      <AnimatePresence mode="wait">
+      <Suspense fallback={<PageLoader />}>
+        <AnimatePresence mode="wait">
         {isOurStory ? (
           <motion.div
             key="our-story"
@@ -60,6 +70,7 @@ function App() {
           </motion.div>
         )}
       </AnimatePresence>
+      </Suspense>
     </div>
   );
 }
