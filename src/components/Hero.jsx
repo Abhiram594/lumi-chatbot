@@ -75,9 +75,8 @@ const Hero = () => {
 
         {/* Static Body */}
         <img 
-          src="/lumi-body.png" 
+          src="/lumi-capeless-v3.png" 
           alt="Lumi Body" 
-          decoding="async"
           fetchpriority="high"
           loading="eager"
           className="relative w-full h-auto z-10 drop-shadow-lg md:drop-shadow-2xl"

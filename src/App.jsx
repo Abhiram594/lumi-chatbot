@@ -3,8 +3,9 @@ import { AnimatePresence, motion } from 'framer-motion';
 import CursorGlow from './components/CursorGlow';
 import TheSignalIntro from './components/TheSignalIntro';
 
+import Home from './pages/Home';
+
 // Lazy load heavy page components for better performance
-const Home = lazy(() => import('./pages/Home'));
 const OurStory = lazy(() => import('./pages/OurStory'));
 const TalkToLumi = lazy(() => import('./pages/TalkToLumi'));
 
