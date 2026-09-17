@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Star, Menu, X, MessageCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [currentHash, setCurrentHash] = useState(window.location.hash || '#/');
 
-  const currentHash = window.location.hash || '#/';
+  useEffect(() => {
+    const handleHashChange = () => setCurrentHash(window.location.hash || '#/');
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   const navLinks = [
     { name: 'Home', href: '#/', active: currentHash === '#/' || currentHash === '' },

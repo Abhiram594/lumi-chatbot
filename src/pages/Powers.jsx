@@ -128,12 +128,13 @@ const Powers = () => {
       <div 
         className="fixed inset-0 z-[-1] bg-cover bg-center bg-no-repeat"
         style={{ 
-          backgroundImage: "url('/powers-bg.jpg')",
+          backgroundImage: "url('/powers-bg.png')",
           backgroundAttachment: "fixed" 
         }}
       >
-        {/* Dark overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-[#060B19]/70 backdrop-blur-[2px]"></div>
+        {/* Gradients to blend the background seamlessly and ensure text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#060B19]/90 via-[#060B19]/50 to-[#060B19]/90 backdrop-blur-[1px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#060B19]/80 via-transparent to-[#060B19]/80"></div>
       </div>
       <BackgroundEffects />
 
