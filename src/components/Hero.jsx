@@ -77,9 +77,11 @@ const Hero = () => {
         <img 
           src="/lumi-body.png" 
           alt="Lumi Body" 
+          decoding="async"
           fetchpriority="high"
           loading="eager"
           className="relative w-full h-auto z-10 drop-shadow-2xl"
+          style={{ transform: 'translateZ(0)', willChange: 'transform' }}
         />
 
       </div>
