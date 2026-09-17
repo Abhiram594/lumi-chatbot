@@ -401,7 +401,7 @@ const OurStory = () => {
               
               <motion.div className="flex justify-center lg:justify-center items-center" style={{ scale: lumiScale, y: lumiY }}>
                 <motion.div animate={{ y: [0, -8, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}>
-                  <img decoding="async" src="/lumi-spark.png" alt="Lumi Awakening" className="h-[25vh] sm:h-[30vh] lg:h-[40vh] w-auto object-contain drop-shadow-[0_0_15px_rgba(255,193,7,0.15)]" style={{ transform: 'translateZ(0)' }} />
+                  <img decoding="async" src="/lumi-spark.png" alt="Lumi Awakening" className="h-[25vh] sm:h-[30vh] lg:h-[40vh] w-auto object-contain drop-shadow-none md:drop-shadow-[0_0_15px_rgba(255,193,7,0.15)]" style={{ transform: 'translateZ(0)' }} />
                 </motion.div>
               </motion.div>
             </div>
@@ -451,7 +451,7 @@ const OurStory = () => {
                   transition={{ duration: activePower !== null ? 3 : 4, repeat: Infinity, ease: "easeInOut" }}
                   className="relative transition-all duration-700"
                 >
-                  <div className={`relative transition-all duration-700 ${activePower !== null ? 'drop-shadow-[0_0_30px_rgba(255,193,7,0.4)]' : 'drop-shadow-[0_0_10px_rgba(255,193,7,0.1)]'}`}>
+                  <div className={`relative transition-all duration-700 ${activePower !== null ? 'drop-shadow-none md:drop-shadow-[0_0_30px_rgba(255,193,7,0.4)]' : 'drop-shadow-none md:drop-shadow-[0_0_10px_rgba(255,193,7,0.1)]'}`}>
                      <img decoding="async" src="/lumi-powers.png" alt="Lumi Powers" className="h-[25vh] sm:h-[35vh] md:h-[45vh] w-auto object-contain relative z-10" style={{ transform: 'translateZ(0)' }} />
                      {/* Chest Star Glow overlay */}
                      <div className={`absolute top-[65%] left-[50%] -translate-x-1/2 -translate-y-1/2 rounded-full transition-all duration-700 z-20 mix-blend-screen ${activePower !== null ? 'w-20 h-20 bg-[radial-gradient(circle,rgba(255,193,7,0.6)_0%,transparent_70%)] opacity-100' : 'w-10 h-10 bg-[radial-gradient(circle,rgba(255,193,7,0)_0%,transparent_70%)] opacity-0'}`} />
@@ -588,7 +588,7 @@ const OurStory = () => {
                 <motion.div
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="relative transition-all duration-700 drop-shadow-[0_0_20px_rgba(255,193,7,0.4)]"
+                  className="relative transition-all duration-700 drop-shadow-none md:drop-shadow-[0_0_20px_rgba(255,193,7,0.4)]"
                   style={{ willChange: 'transform' }}
                 >
                   <img decoding="async" src="/lumi-spark.png" alt="Lumi" className="h-[12vh] md:h-[18vh] w-auto object-contain relative z-10" style={{ transform: 'translateZ(0)' }} />

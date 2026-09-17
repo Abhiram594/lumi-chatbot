@@ -80,7 +80,7 @@ const Hero = () => {
           decoding="async"
           fetchpriority="high"
           loading="eager"
-          className="relative w-full h-auto z-10 drop-shadow-2xl"
+          className="relative w-full h-auto z-10 drop-shadow-lg md:drop-shadow-2xl"
           style={{ transform: 'translateZ(0)', willChange: 'transform' }}
         />
 

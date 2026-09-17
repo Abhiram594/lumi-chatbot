@@ -867,7 +867,11 @@ const TheSignalIntro = () => {
               const silOpacity = Math.min(Math.max((t4a - 0.4) / 0.8, 0), 1.0);
               if (silhouetteRef.current) {
                   silhouetteRef.current.style.opacity = silOpacity;
-                  silhouetteRef.current.style.filter = 'brightness(0) drop-shadow(0 0 25px rgba(255,193,7,0.8)) sepia(1) hue-rotate(330deg) saturate(3)';
+                  if (window.innerWidth < 768) {
+                      silhouetteRef.current.style.filter = 'brightness(0) drop-shadow(0 0 10px rgba(255,193,7,0.8))';
+                  } else {
+                      silhouetteRef.current.style.filter = 'brightness(0) drop-shadow(0 0 25px rgba(255,193,7,0.8)) sepia(1) hue-rotate(330deg) saturate(3)';
+                  }
               }
               
               // Full character resolves around 5.60 (t4a = 1.0)

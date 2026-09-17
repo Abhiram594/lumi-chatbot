@@ -118,7 +118,7 @@ export default function TalkToLumi() {
               className={`absolute w-32 h-32 rounded-full transition-all duration-1000 blur-2xl ${isTyping ? 'scale-150 bg-lumi-yellow/30' : 'scale-100 bg-lumi-yellow/10'}`} 
               style={{ willChange: 'transform, background-color' }}
             />
-            <img src="/lumi-spark.png" alt="Lumi" className="h-[20vh] md:h-[40vh] w-auto object-contain relative z-10 drop-shadow-[0_0_20px_rgba(255,193,7,0.3)]" loading="eager" fetchpriority="high" />
+            <img src="/lumi-spark.png" alt="Lumi" decoding="async" className="h-[20vh] md:h-[40vh] w-auto object-contain relative z-10 drop-shadow-none md:drop-shadow-[0_0_20px_rgba(255,193,7,0.3)]" style={{ transform: 'translateZ(0)' }} loading="eager" fetchpriority="high" />
             <div 
               className={`absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 rounded-full transition-all duration-500 z-20 mix-blend-screen w-12 h-12 ${isTyping ? 'scale-[2] bg-[radial-gradient(circle,rgba(255,255,255,0.6)_0%,transparent_70%)] animate-pulse' : 'scale-100 bg-[radial-gradient(circle,rgba(255,193,7,0.4)_0%,transparent_70%)]'}`} 
               style={{ willChange: 'transform' }}

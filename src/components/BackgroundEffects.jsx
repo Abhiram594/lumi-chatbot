@@ -41,14 +41,14 @@ const BackgroundEffects = () => {
 
       {/* 4. Warm Lamp Glow (Subtle atmospheric pulse on the far right) */}
       <div 
-        className="absolute w-[15vw] h-[15vw] rounded-full bg-lumi-yellow mix-blend-screen blur-[60px] opacity-40 animate-pulse-glow motion-reduce:animate-none right-[2%] bottom-[15%]"
-        style={{ willChange: 'opacity, filter' }}
+        className="absolute w-[30vw] md:w-[15vw] h-[30vw] md:h-[15vw] rounded-full mix-blend-screen opacity-40 animate-pulse-glow motion-reduce:animate-none right-0 md:right-[2%] bottom-[10%] md:bottom-[15%] bg-[radial-gradient(circle,rgba(255,193,7,0.8)_0%,transparent_70%)]"
+        style={{ willChange: 'opacity' }}
       ></div>
       
       {/* 6. Lumi Chest Star Glow (Kept soft and warm) */}
       <div 
-        className="absolute w-[20vw] h-[20vw] rounded-full bg-[#FF9800] mix-blend-screen blur-[80px] opacity-60 animate-pulse-glow motion-reduce:animate-none right-[25%] bottom-[20%]"
-        style={{ animationDelay: '2s', willChange: 'opacity, filter' }}
+        className="absolute w-[40vw] md:w-[20vw] h-[40vw] md:h-[20vw] rounded-full mix-blend-screen opacity-60 animate-pulse-glow motion-reduce:animate-none right-[15%] md:right-[25%] bottom-[15%] md:bottom-[20%] bg-[radial-gradient(circle,rgba(255,152,0,0.8)_0%,transparent_70%)]"
+        style={{ animationDelay: '2s', willChange: 'opacity' }}
       ></div>
     </div>
   );
