@@ -3,7 +3,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Home from './pages/Home';
 import OurStory from './pages/OurStory';
 import TalkToLumi from './pages/TalkToLumi';
-import Powers from './pages/Powers';
 import CursorGlow from './components/CursorGlow';
 import TheSignalIntro from './components/TheSignalIntro';
 
@@ -23,7 +22,6 @@ function App() {
 
   const isOurStory = currentPath === '#/our-story';
   const isTalk = currentPath === '#/talk';
-  const isPowers = currentPath === '#/powers';
 
   return (
     <div className="min-h-screen bg-lumi-navy text-lumi-cream font-sans">
@@ -39,16 +37,6 @@ function App() {
             transition={{ duration: 0.5 }}
           >
             <OurStory />
-          </motion.div>
-        ) : isPowers ? (
-          <motion.div
-            key="powers"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Powers />
           </motion.div>
         ) : isTalk ? (
           <motion.div

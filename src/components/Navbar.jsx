@@ -9,14 +9,22 @@ const Navbar = () => {
   useEffect(() => {
     const handleHashChange = () => setCurrentHash(window.location.hash || '#/');
     window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    
+    // Sync with App.jsx's replaceState which forces home on initial load
+    const syncTimer = setTimeout(() => {
+      setCurrentHash(window.location.hash || '#/');
+    }, 50);
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+      clearTimeout(syncTimer);
+    };
   }, []);
 
   const navLinks = [
     { name: 'Home', href: '#/', active: currentHash === '#/' || currentHash === '' },
     { name: 'Talk to Lumi', href: '#/talk', active: currentHash === '#/talk' },
     { name: 'Our Story', href: '#/our-story', active: currentHash === '#/our-story' },
-    { name: 'Powers', href: '#/powers', active: currentHash === '#/powers' },
   ];
 
   return (
