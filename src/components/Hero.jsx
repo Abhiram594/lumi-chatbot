@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MessageCircle, Info } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 import BackgroundEffects from './BackgroundEffects';
 
 const Hero = () => {
@@ -36,14 +36,12 @@ const Hero = () => {
             </p>
             
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <button className="bg-lumi-yellow hover:bg-lumi-yellow-hover hover:shadow-[0_0_20px_rgba(255,193,7,0.4)] text-lumi-midnight font-bold text-lg py-4 px-8 rounded-full flex items-center justify-center gap-2 transition-all hover:-translate-y-1 active:translate-y-0 shadow-lg shadow-lumi-yellow/20 focus:outline-none focus:ring-4 focus:ring-white/50">
+              <button 
+                onClick={() => window.location.hash = '#/talk'}
+                className="bg-lumi-yellow hover:bg-lumi-yellow-hover hover:shadow-[0_0_20px_rgba(255,193,7,0.4)] text-lumi-midnight font-bold text-lg py-4 px-8 rounded-full flex items-center justify-center gap-2 transition-all hover:-translate-y-1 active:translate-y-0 shadow-lg shadow-lumi-yellow/20 focus:outline-none focus:ring-4 focus:ring-white/50 w-full sm:w-auto"
+              >
                 <MessageCircle className="w-6 h-6" />
                 <span>Talk to Lumi →</span>
-              </button>
-              
-              <button className="bg-white/10 hover:bg-white/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.15)] backdrop-blur-sm border border-white/20 text-lumi-cream font-bold text-lg py-4 px-8 rounded-full flex items-center justify-center gap-2 transition-all hover:-translate-y-1 active:translate-y-0 focus:outline-none focus:ring-4 focus:ring-white/50">
-                <Info className="w-6 h-6" />
-                <span>Meet Lumi</span>
               </button>
             </div>
           </motion.div>
