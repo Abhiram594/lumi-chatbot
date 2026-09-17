@@ -75,7 +75,7 @@ const Hero = () => {
 
         {/* Static Body */}
         <img 
-          src="/lumi-capeless-v3.png" 
+          src="/lumi-body.png" 
           alt="Lumi Body" 
           fetchpriority="high"
           loading="eager"
