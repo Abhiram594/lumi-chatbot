@@ -9,10 +9,9 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', href: '#/', active: currentHash === '#/' || currentHash === '' },
-    { name: 'Talk to Lumi', href: '#/talk' },
+    { name: 'Talk to Lumi', href: '#/talk', active: currentHash === '#/talk' },
     { name: 'Our Story', href: '#/our-story', active: currentHash === '#/our-story' },
-    { name: 'How It Works', href: '#/how-it-works' },
-    { name: 'Resources', href: '#/resources' },
+    { name: 'Powers', href: '#/powers', active: currentHash === '#/powers' },
   ];
 
   return (
